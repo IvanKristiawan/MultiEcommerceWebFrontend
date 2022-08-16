@@ -66,15 +66,7 @@ function Header() {
       </Paper>
 
       {wideScreenMenu.bukuMenu && screenSize >= 650 && (
-        <Box
-          sx={{
-            zIndex: 1,
-            display: "block",
-            position: "absolute",
-            top: "9.7rem",
-            left: "20rem"
-          }}
-        >
+        <Box sx={subKategoriPop}>
           <Box sx={subKategoriContainer}>
             <Box sx={subKategoriWrapper}>
               <SubKategoriButton
@@ -130,6 +122,14 @@ const mainContainer = {
   justifyContent: "center",
   paddingTop: 1,
   paddingBottom: 1
+};
+
+const subKategoriPop = {
+  zIndex: 1,
+  display: "block",
+  position: "absolute",
+  top: "9.7rem",
+  left: "20rem"
 };
 
 const subKategoriContainer = {

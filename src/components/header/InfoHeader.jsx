@@ -11,6 +11,8 @@ function InfoHeader() {
   const { screenSize } = useStateContext();
 
   const mobileIcon = {
+    width: "40px",
+    height: "25px",
     color: Colors.grey500,
     paddingLeft: screenSize >= 650 && 2
   };
