@@ -15,12 +15,14 @@ function ProductCard({
   title,
   normalPrice,
   totalPrice,
-  ratingCount
+  ratingCount,
+  addStyle
 }) {
   const { screenSize } = useStateContext();
 
   const cardContainer = {
-    width: screenSize >= 550 ? 216 : "100%",
+    width: screenSize >= 550 ? 216 : "40%",
+    marginTop: screenSize <= 550 && 2,
     border: "1px solid",
     borderColor: Colors.grey300,
     cursor: "pointer",
@@ -33,12 +35,18 @@ function ProductCard({
     color: normalPrice ? Colors.red500 : Colors.black
   };
 
+  const priceRatingContainer = {
+    display: "flex",
+    flexDirection: screenSize <= 550 && "column",
+    justifyContent: screenSize >= 550 && "space-between"
+  };
+
   return (
     <>
-      <Card sx={cardContainer}>
+      <Card sx={[cardContainer, addStyle]}>
         <CardMedia
           component="img"
-          height="100%"
+          height={screenSize <= 550 ? "150px" : "220px"}
           image={productImage}
           alt="green iguana"
         />
@@ -74,11 +82,6 @@ function ProductCard({
 }
 
 export default ProductCard;
-
-const priceRatingContainer = {
-  display: "flex",
-  justifyContent: "space-between"
-};
 
 const diskonTextStyle = {
   textDecoration: "line-through",

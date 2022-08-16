@@ -10,43 +10,64 @@ function RekomendasiAllProduct() {
   const { screenSize } = useStateContext();
 
   const produkCardContainer = {
-    padding: 5,
+    padding: screenSize >= 650 ? 5 : 1,
     display: "flex",
-    flexWrap: "wrap"
+    flexWrap: "wrap",
+    justifyContent: screenSize <= 550 && "space-around"
   };
 
-  const produkCard = {
-    marginLeft: screenSize >= 650 && "25px",
-    paddingTop: screenSize <= 650 && 5
-  };
+  function customStyleCard(i) {
+    let customStyle = {};
+    if (i % 2 !== 0 && screenSize <= 550) {
+      customStyle = {
+        marginLeft: 2
+      };
+    } else if (i !== 0 && screenSize >= 550) {
+      customStyle = {
+        marginLeft: 2
+      };
+    }
+    return customStyle;
+  }
 
   return (
     <Paper>
       <Box sx={produkCardContainer}>
-        {cardData.map((val, i) => (
-          <Box sx={i !== 0 && produkCard}>
-            <ProductCard
-              productImage={val.productImage}
-              title={val.title}
-              normalPrice={val.normalPrice}
-              totalPrice={val.totalPrice}
-              ratingCount={val.ratingCount}
-            />
-          </Box>
-        ))}
-      </Box>
-      {screenSize >= 550 ? (
-        <Box sx={secondProductList}>
-          {cardData.map((val, i) => (
-            <Box sx={i !== 0 && produkCard}>
+        {cardData.map((val, i) =>
+          screenSize <= 550 ? (
+            i < 4 && (
               <ProductCard
                 productImage={val.productImage}
                 title={val.title}
                 normalPrice={val.normalPrice}
                 totalPrice={val.totalPrice}
                 ratingCount={val.ratingCount}
+                addStyle={() => customStyleCard(i)}
               />
-            </Box>
+            )
+          ) : (
+            <ProductCard
+              productImage={val.productImage}
+              title={val.title}
+              normalPrice={val.normalPrice}
+              totalPrice={val.totalPrice}
+              ratingCount={val.ratingCount}
+              addStyle={() => customStyleCard(i)}
+            />
+          )
+        )}
+      </Box>
+      {screenSize >= 550 ? (
+        <Box sx={secondProductList}>
+          {cardData.map((val, i) => (
+            <ProductCard
+              productImage={val.productImage}
+              title={val.title}
+              normalPrice={val.normalPrice}
+              totalPrice={val.totalPrice}
+              ratingCount={val.ratingCount}
+              addStyle={() => customStyleCard(i)}
+            />
           ))}
         </Box>
       ) : (
