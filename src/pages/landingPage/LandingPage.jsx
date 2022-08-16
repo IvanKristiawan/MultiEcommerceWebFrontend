@@ -20,7 +20,7 @@ import {
   ListProductCard,
   ProductCard,
   RekomendasiAllProduct,
-  BukuAllProduct
+  AllProduct
 } from "../../components/index";
 
 function LandingPage() {
@@ -49,7 +49,19 @@ function LandingPage() {
       <Box sx={produkContainer}>
         {/* Buku */}
         <ListProductCard title="Buku" mainMenu="Produk Terbaru" />
-        <BukuAllProduct />
+        <AllProduct />
+      </Box>
+
+      <Box sx={produkContainer}>
+        {/* Elektronik */}
+        <ListProductCard title="Elektronik" mainMenu="Produk Terbaru" />
+        <AllProduct />
+      </Box>
+
+      <Box sx={produkContainer}>
+        {/* Komputer */}
+        <ListProductCard title="Komputer" mainMenu="Produk Terbaru" />
+        <AllProduct />
       </Box>
     </Box>
   );

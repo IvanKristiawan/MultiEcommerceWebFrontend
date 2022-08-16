@@ -7,7 +7,7 @@ import SampleProdukIcon from "../../icons/uiIcon/SampleProdukIcon.svg";
 import { ProductCard } from "../index";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
-function BukuAllProduct() {
+function AllProduct() {
   const { screenSize } = useStateContext();
 
   const breakPoints = [
@@ -88,7 +88,7 @@ function BukuAllProduct() {
   );
 }
 
-export default BukuAllProduct;
+export default AllProduct;
 
 const lihatSemuaTextContainer = {
   cursor: "pointer",
