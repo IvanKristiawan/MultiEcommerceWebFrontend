@@ -1,10 +1,37 @@
 import React from "react";
+import { useStateContext } from "../../contexts/ContextProvider";
 import { Box, Divider, Typography } from "@mui/material";
 import { FontFamily, Colors } from "../../constants/styles";
 
 function ListProductCard({ title, mainMenu, secondMenu }) {
+  const { screenSize } = useStateContext();
+
+  const produkWrapper = {
+    display: "flex",
+    flexDirection: screenSize <= 550 && "column"
+  };
+
+  const produkMenuContainer = {
+    marginLeft: screenSize >= 550 && "10vw",
+    display: "flex"
+  };
+
+  const produkMenuKategoriButton = {
+    backgroundColor: Colors.white,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    paddingLeft: 4,
+    paddingRight: 4,
+    height: screenSize >= 550 ? "100%" : "50px",
+    cursor: "pointer",
+    "&:hover": {
+      backgroundColor: Colors.grey100
+    }
+  };
+
   return (
-    <>
+    <Box sx={produkWrapper}>
       <Box>
         <Typography sx={FontFamily.h2}>{title}</Typography>
       </Box>
@@ -25,35 +52,18 @@ function ListProductCard({ title, mainMenu, secondMenu }) {
           </>
         )}
       </Box>
-      <Box sx={lihatSemuaContainer}>
-        <Typography sx={[FontFamily.body2, lihatSemuaText]}>
-          Lihat Semua
-        </Typography>
-      </Box>
-    </>
+      {screenSize >= 800 && (
+        <Box sx={lihatSemuaContainer}>
+          <Typography sx={[FontFamily.body2, lihatSemuaText]}>
+            Lihat Semua
+          </Typography>
+        </Box>
+      )}
+    </Box>
   );
 }
 
 export default ListProductCard;
-
-const produkMenuContainer = {
-  marginLeft: "10vw",
-  display: "flex"
-};
-
-const produkMenuKategoriButton = {
-  backgroundColor: Colors.white,
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  paddingLeft: 4,
-  paddingRight: 4,
-  height: "100%",
-  cursor: "pointer",
-  "&:hover": {
-    backgroundColor: Colors.grey100
-  }
-};
 
 const selectedProdukMenuKategoriButton = {
   borderBottom: "3px solid",

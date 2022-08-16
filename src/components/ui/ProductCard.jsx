@@ -1,4 +1,5 @@
 import React from "react";
+import { useStateContext } from "../../contexts/ContextProvider";
 import {
   Box,
   Typography,
@@ -9,13 +10,29 @@ import {
 } from "@mui/material";
 import { FontFamily, Colors } from "../../constants/styles";
 
-function DiskonProductCard({
+function ProductCard({
   productImage,
   title,
   normalPrice,
-  diskonPrice,
+  totalPrice,
   ratingCount
 }) {
+  const { screenSize } = useStateContext();
+
+  const cardContainer = {
+    width: screenSize >= 550 ? 216 : "100%",
+    border: "1px solid",
+    borderColor: Colors.grey300,
+    cursor: "pointer",
+    "&:hover": {
+      backgroundColor: Colors.grey100
+    }
+  };
+
+  const priceText = {
+    color: normalPrice ? Colors.red500 : Colors.black
+  };
+
   return (
     <>
       <Card sx={cardContainer}>
@@ -29,17 +46,19 @@ function DiskonProductCard({
           <Typography gutterBottom component="div" sx={FontFamily.caption}>
             {title}
           </Typography>
-          <Typography
-            variant="body2"
-            component="span"
-            className="strikethrough"
-            sx={[FontFamily.caption, diskonPrice]}
-          >
-            Rp {normalPrice.toLocaleString()}
-          </Typography>
+          {normalPrice && (
+            <Typography
+              variant="body2"
+              component="span"
+              className="strikethrough"
+              sx={[FontFamily.caption, diskonTextStyle]}
+            >
+              Rp {normalPrice.toLocaleString()}
+            </Typography>
+          )}
           <Box sx={priceRatingContainer}>
             <Typography variant="body2" sx={[FontFamily.caption, priceText]}>
-              Rp {diskonPrice.toLocaleString()}
+              Rp {totalPrice.toLocaleString()}
             </Typography>
             <Rating
               size="small"
@@ -54,23 +73,14 @@ function DiskonProductCard({
   );
 }
 
-export default DiskonProductCard;
-
-const cardContainer = {
-  width: 216,
-  border: "1px solid",
-  borderColor: Colors.grey300,
-  cursor: "pointer",
-  "&:hover": {
-    backgroundColor: Colors.grey100
-  }
-};
+export default ProductCard;
 
 const priceRatingContainer = {
   display: "flex",
   justifyContent: "space-between"
 };
 
-const priceText = {
-  color: Colors.red500
+const diskonTextStyle = {
+  textDecoration: "line-through",
+  textDecorationColor: Colors.red500
 };

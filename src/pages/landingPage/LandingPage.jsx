@@ -18,36 +18,44 @@ import SampleProdukIcon from "../../icons/uiIcon/SampleProdukIcon.svg";
 import {
   CarouselUi,
   ListProductCard,
-  DiskonProductCard,
-  RekomendasiAllProduct
+  ProductCard,
+  RekomendasiAllProduct,
+  BukuAllProduct
 } from "../../components/index";
 
 function LandingPage() {
+  const { screenSize } = useStateContext();
+
+  const carouselContainer = {
+    marginBottom: screenSize >= 550 ? 5 : 2
+  };
+
   return (
     <Box>
       <Box sx={carouselContainer}>
         <CarouselUi />
       </Box>
+
       <Box sx={produkContainer}>
-        <Box sx={produkWrapper}>
-          {/* Rekomendasi */}
-          <ListProductCard
-            title="Rekomendasi"
-            mainMenu="Promo"
-            secondMenu="Produk Baru"
-          />
-        </Box>
+        {/* Rekomendasi */}
+        <ListProductCard
+          title="Rekomendasi"
+          mainMenu="Promo"
+          secondMenu="Produk Baru"
+        />
         <RekomendasiAllProduct />
+      </Box>
+
+      <Box sx={produkContainer}>
+        {/* Buku */}
+        <ListProductCard title="Buku" mainMenu="Produk Terbaru" />
+        <BukuAllProduct />
       </Box>
     </Box>
   );
 }
 
 export default LandingPage;
-
-const carouselContainer = {
-  marginBottom: 5
-};
 
 const produkContainer = {
   marginBottom: 7
