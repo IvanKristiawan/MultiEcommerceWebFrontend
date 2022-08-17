@@ -76,7 +76,7 @@ function AllProduct() {
   }
 
   return (
-    <Paper>
+    <>
       <Box sx={produkCardContainer}>{showProductList}</Box>
       {screenSize <= 550 && (
         <Box sx={lihatSemuaTextContainer}>
@@ -84,7 +84,7 @@ function AllProduct() {
           <KeyboardArrowDownIcon />
         </Box>
       )}
-    </Paper>
+    </>
   );
 }
 

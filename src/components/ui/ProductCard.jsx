@@ -1,5 +1,6 @@
 import React from "react";
 import { useStateContext } from "../../contexts/ContextProvider";
+import { useNavigate } from "react-router-dom";
 import {
   Box,
   Typography,
@@ -19,6 +20,7 @@ function ProductCard({
   addStyle
 }) {
   const { screenSize } = useStateContext();
+  const navigate = useNavigate();
 
   const cardContainer = {
     width: screenSize >= 550 ? 216 : "40%",
@@ -41,9 +43,13 @@ function ProductCard({
     justifyContent: screenSize >= 550 && "space-between"
   };
 
+  const handleClick = () => {
+    navigate("/produkId");
+  };
+
   return (
     <>
-      <Card sx={[cardContainer, addStyle]}>
+      <Card sx={[cardContainer, addStyle]} onClick={handleClick}>
         <CardMedia
           component="img"
           height={screenSize <= 550 ? "150px" : "220px"}

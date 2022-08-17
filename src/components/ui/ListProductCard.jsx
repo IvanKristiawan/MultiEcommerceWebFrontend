@@ -33,14 +33,18 @@ function ListProductCard({ title, mainMenu, secondMenu }) {
   return (
     <Box sx={produkWrapper}>
       <Box>
-        <Typography sx={FontFamily.h2}>{title}</Typography>
+        <Typography sx={FontFamily.body1}>{title}</Typography>
       </Box>
       <Box sx={produkMenuContainer}>
-        <Box sx={[produkMenuKategoriButton, selectedProdukMenuKategoriButton]}>
-          <Typography sx={[FontFamily.body2, produkMenuTextButton]}>
-            {mainMenu}
-          </Typography>
-        </Box>
+        {mainMenu && (
+          <Box
+            sx={[produkMenuKategoriButton, selectedProdukMenuKategoriButton]}
+          >
+            <Typography sx={[FontFamily.body2, produkMenuTextButton]}>
+              {mainMenu}
+            </Typography>
+          </Box>
+        )}
         {secondMenu && (
           <>
             <Divider orientation="vertical" flexItem sx={verticalDivider} />

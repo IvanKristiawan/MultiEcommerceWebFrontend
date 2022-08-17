@@ -1,5 +1,6 @@
 import React from "react";
 import { useStateContext } from "../../contexts/ContextProvider";
+import { useNavigate } from "react-router-dom";
 import { Box, Autocomplete, TextField, Button } from "@mui/material";
 import { FontFamily, Colors } from "../../constants/styles";
 import SearchIcon from "@mui/icons-material/Search";
@@ -8,6 +9,7 @@ import CartIcon from "../../icons/uiIcon/CartIcon.svg";
 
 function MainHeader() {
   const { screenSize, setWideScreenMenu } = useStateContext();
+  const navigate = useNavigate();
 
   const searchInput = {
     width: screenSize >= 960 ? "55vw" : "35vw"
@@ -21,10 +23,19 @@ function MainHeader() {
     });
   }
 
+  function handleClick() {
+    navigate("/");
+  }
+
   return (
     <Box sx={mainContainer} onClick={closeAllMenu}>
       <Box>
-        <img src={MultiIcon} alt="multi-icon" style={multiIcon} />
+        <img
+          src={MultiIcon}
+          alt="multi-icon"
+          style={multiIcon}
+          onClick={handleClick}
+        />
       </Box>
       <Box sx={searchBarContainer}>
         <Autocomplete
@@ -92,7 +103,8 @@ const mainContainer = {
 
 const multiIcon = {
   height: "40px",
-  width: "auto"
+  width: "auto",
+  cursor: "pointer"
 };
 
 const searchBarContainer = {

@@ -4,7 +4,7 @@ import "./styles.css";
 import { Box, Typography, Paper } from "@mui/material";
 import { Header, Footer } from "./components/index";
 import { useStateContext } from "./contexts/ContextProvider";
-import { LandingPage } from "./pages/index";
+import { LandingPage, ProductPage } from "./pages/index";
 
 export default function App() {
   const { screenSize, setScreenSize, setWideScreenMenu } = useStateContext();
@@ -49,6 +49,10 @@ export default function App() {
             <Routes>
               {/* Landing Page */}
               <Route path="/" element={<LandingPage />} />
+            </Routes>
+            <Routes>
+              {/* Product Page */}
+              <Route path="/produkId" element={<ProductPage />} />
             </Routes>
           </Box>
         </BrowserRouter>

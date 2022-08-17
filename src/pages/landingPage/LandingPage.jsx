@@ -1,24 +1,9 @@
 import React from "react";
 import { useStateContext } from "../../contexts/ContextProvider";
-import {
-  Box,
-  Paper,
-  ButtonGroup,
-  Divider,
-  Typography,
-  Card,
-  CardMedia,
-  CardContent,
-  CardActions,
-  Button,
-  Rating
-} from "@mui/material";
-import { FontFamily, Colors } from "../../constants/styles";
-import SampleProdukIcon from "../../icons/uiIcon/SampleProdukIcon.svg";
+import { Box, Paper } from "@mui/material";
 import {
   CarouselUi,
   ListProductCard,
-  ProductCard,
   RekomendasiAllProduct,
   AllProduct
 } from "../../components/index";
@@ -49,19 +34,25 @@ function LandingPage() {
       <Box sx={produkContainer}>
         {/* Buku */}
         <ListProductCard title="Buku" mainMenu="Produk Terbaru" />
-        <AllProduct />
+        <Paper>
+          <AllProduct />
+        </Paper>
       </Box>
 
       <Box sx={produkContainer}>
         {/* Elektronik */}
         <ListProductCard title="Elektronik" mainMenu="Produk Terbaru" />
-        <AllProduct />
+        <Paper>
+          <AllProduct />
+        </Paper>
       </Box>
 
       <Box sx={produkContainer}>
         {/* Komputer */}
         <ListProductCard title="Komputer" mainMenu="Produk Terbaru" />
-        <AllProduct />
+        <Paper>
+          <AllProduct />
+        </Paper>
       </Box>
     </Box>
   );
@@ -71,18 +62,4 @@ export default LandingPage;
 
 const produkContainer = {
   marginBottom: 7
-};
-
-const produkWrapper = {
-  display: "flex"
-};
-
-const produkCardContainer = {
-  padding: 5,
-  display: "flex",
-  flexWrap: "wrap"
-};
-
-const produkCard = {
-  marginLeft: "25px"
 };
