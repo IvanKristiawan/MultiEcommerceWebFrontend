@@ -1,31 +1,38 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useStateContext } from "../../contexts/ContextProvider";
+import { useLocation } from "react-router-dom";
 import { Box, Paper, ButtonGroup, Divider } from "@mui/material";
 import { Colors } from "../../constants/styles";
 import { InfoHeader, MainHeader, KategoriHeader } from "./index";
 import { SubKategoriButton, SubGroup } from "./subComponents/index";
 
 function Header() {
+  const location = useLocation();
   const {
     screenSize,
     wideScreenMenu,
     subKategoriBuku,
     handleHoverOverSubKategoriBuku,
-    handleHoverOverMenu
+    handleHoverOverMenu,
+    closeAllMenu
   } = useStateContext();
 
+  useEffect(() => {
+    closeAllMenu();
+  }, [location]);
+
   let arraySubKategoriBukuDesain = [
-    { name: "Buku Dekorasi" },
-    { name: "Buku Desain Rumah" },
-    { name: "Buku Desain Dapur" },
-    { name: "Buku Desain Kamar" }
+    { name: "Buku Dekorasi", url: "bukuDekorasi" },
+    { name: "Buku Desain Rumah", url: "bukuDesainRumah" },
+    { name: "Buku Desain Dapur", url: "bukuDesainDapur" },
+    { name: "Buku Desain Kamar", url: "bukuDesainKamar" }
   ];
 
   let arraySubKategoriBukuHukum = [
-    { name: "Buku Hukum Dagang" },
-    { name: "Buku Hukum Internasional" },
-    { name: "Buku Hukum Perdata" },
-    { name: "Buku Hukum Pidana" }
+    { name: "Buku Hukum Dagang", url: "bukuHukumDagang" },
+    { name: "Buku Hukum Internasional", url: "bukuHukumInternasional" },
+    { name: "Buku Hukum Perdata", url: "bukuHukumPerdata" },
+    { name: "Buku Hukum Pidana", url: "bukuHukumPidana" }
   ];
 
   let subGroupView = <SubGroup />;

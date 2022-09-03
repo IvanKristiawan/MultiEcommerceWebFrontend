@@ -1,14 +1,26 @@
+import { useNavigate } from "react-router-dom";
 import { Box, Typography } from "@mui/material";
 import { FontFamily, Colors } from "../../../constants/styles";
 
 function SubGroup({ arrayChildren }) {
+  const navigate = useNavigate();
+
+  function handleClick() {
+    navigate("/listProduk");
+  }
+
   return (
     <Box sx={subGroupWrapper}>
       {arrayChildren &&
         arrayChildren.map((val) => (
           <>
             <Box sx={subGroupTextContainer}>
-              <Typography sx={[FontFamily.caption, subGroupText]}>
+              <Typography
+                sx={[FontFamily.caption, subGroupText]}
+                onClick={() => {
+                  navigate(`/${val.url}`);
+                }}
+              >
                 {val.name}
               </Typography>
             </Box>

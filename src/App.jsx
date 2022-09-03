@@ -4,7 +4,14 @@ import "./styles.css";
 import { Box, Typography, Paper } from "@mui/material";
 import { Header, Footer } from "./components/index";
 import { useStateContext } from "./contexts/ContextProvider";
-import { LandingPage, ProductPage } from "./pages/index";
+import {
+  LandingPage,
+  ProductPage,
+  ListProductPage,
+  DaftarPage,
+  MasukPage,
+  KeranjangPage
+} from "./pages/index";
 
 export default function App() {
   const { screenSize, setScreenSize, setWideScreenMenu } = useStateContext();
@@ -54,9 +61,24 @@ export default function App() {
               {/* Product Page */}
               <Route path="/produkId" element={<ProductPage />} />
             </Routes>
+            <Routes>
+              {/* List Product Page */}
+              <Route path="/bukuDekorasi" element={<ListProductPage />} />
+            </Routes>
+            <Routes>
+              {/* Daftar Page */}
+              <Route path="/daftar" element={<DaftarPage />} />
+            </Routes>
+            <Routes>
+              {/* Masuk Page */}
+              <Route path="/masuk" element={<MasukPage />} />
+            </Routes>
+            <Routes>
+              {/* Keranjang Page */}
+              <Route path="/keranjang" element={<KeranjangPage />} />
+            </Routes>
           </Box>
         </BrowserRouter>
-        {/* <Box onClick={closeAllMenu} sx={{ minHeight: "50vh" }}></Box> */}
         <Footer />
       </Box>
     </Box>

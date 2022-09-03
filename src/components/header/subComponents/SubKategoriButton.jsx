@@ -9,7 +9,7 @@ function SubKategoriButton({ children, onHoverSubKategori }) {
       disableRipple
       variant="contained"
       sx={[FontFamily.caption, subKategoriButton]}
-      onMouseOver={onHoverSubKategori}
+      onClick={onHoverSubKategori}
     >
       {children}
     </Button>

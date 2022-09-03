@@ -19,6 +19,12 @@ export const ContextProvider = ({ children }) => {
     kesehatan: false
   });
 
+  const closeAllMenu = () => {
+    setWideScreenMenu({ desain: false });
+    setWideScreenMenu({ elektronikMenu: false });
+    setWideScreenMenu({ komputerMenu: false });
+  };
+
   const handleHoverOverSubKategoriBuku = (pickedSubGroup) => {
     switch (pickedSubGroup) {
       case "desain":
@@ -71,7 +77,8 @@ export const ContextProvider = ({ children }) => {
         subKategoriBuku,
         setSubKategoriBuku,
         handleHoverOverSubKategoriBuku,
-        handleHoverOverMenu
+        handleHoverOverMenu,
+        closeAllMenu
       }}
     >
       {children}

@@ -7,7 +7,7 @@ function KategoriHeader({ children, handleHover }) {
     <Button
       disableRipple
       sx={[FontFamily.caption, kategoriButton]}
-      onMouseOver={handleHover}
+      onClick={handleHover}
     >
       {children}
     </Button>

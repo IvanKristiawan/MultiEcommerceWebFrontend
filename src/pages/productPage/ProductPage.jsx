@@ -1,21 +1,6 @@
 import React from "react";
 import { useStateContext } from "../../contexts/ContextProvider";
-import {
-  Box,
-  Paper,
-  ButtonGroup,
-  Divider,
-  Typography,
-  Card,
-  CardMedia,
-  CardContent,
-  CardActions,
-  Button,
-  Rating
-} from "@mui/material";
-import { FontFamily, Colors } from "../../constants/styles";
-import Carousel from "react-bootstrap/Carousel";
-import SampleProdukIcon from "../../icons/uiIcon/SampleProdukIcon.svg";
+import { Box, Paper, Button } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import {
   ProductCarousel,

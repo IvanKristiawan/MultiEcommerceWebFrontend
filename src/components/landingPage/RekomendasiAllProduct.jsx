@@ -31,7 +31,7 @@ function RekomendasiAllProduct() {
   }
 
   return (
-    <Paper>
+    <>
       <Box sx={produkCardContainer}>
         {cardData.map((val, i) =>
           screenSize <= 550 ? (
@@ -76,7 +76,7 @@ function RekomendasiAllProduct() {
           <KeyboardArrowDownIcon />
         </Box>
       )}
-    </Paper>
+    </>
   );
 }
 

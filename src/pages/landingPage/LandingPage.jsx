@@ -28,7 +28,9 @@ function LandingPage() {
           mainMenu="Promo"
           secondMenu="Produk Baru"
         />
-        <RekomendasiAllProduct />
+        <Paper>
+          <RekomendasiAllProduct />
+        </Paper>
       </Box>
 
       <Box sx={produkContainer}>

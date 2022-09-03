@@ -27,6 +27,18 @@ function MainHeader() {
     navigate("/");
   }
 
+  function handleClickKeranjang() {
+    navigate("/keranjang");
+  }
+
+  function handleClickDaftar() {
+    navigate("/daftar");
+  }
+
+  function handleClickMasuk() {
+    navigate("/masuk");
+  }
+
   return (
     <Box sx={mainContainer} onClick={closeAllMenu}>
       <Box>
@@ -64,6 +76,7 @@ function MainHeader() {
         <Button
           variant="contained"
           disableElevation
+          onClick={handleClickKeranjang}
           sx={[cartButton, accountButton]}
         >
           <img src={CartIcon} alt="cart-button" style={cartIcon} />
@@ -71,6 +84,7 @@ function MainHeader() {
         <Button
           variant="outlined"
           disableElevation
+          onClick={handleClickMasuk}
           sx={[FontFamily.caption, accountButton]}
         >
           Masuk
@@ -78,6 +92,7 @@ function MainHeader() {
         <Button
           variant="contained"
           disableElevation
+          onClick={handleClickDaftar}
           sx={[FontFamily.caption, accountButton]}
         >
           Daftar
